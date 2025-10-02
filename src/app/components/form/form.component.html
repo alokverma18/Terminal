@@ -1,0 +1,169 @@
+<div class="form-container">
+  <div class="terminal-bar">
+    <span class="bar-btn red"></span>
+    <span class="bar-btn yellow"></span>
+    <span class="bar-btn green"></span>
+  </div>
+  <form [formGroup]="resumeForm" (ngSubmit)="onSubmit()">
+    <h2>Contact</h2>
+    <div class="form-group full-width">
+      <label>Name:</label>
+      <input formControlName="name" type="text" placeholder="Your Full Name" required />
+    </div>
+    <div formGroupName="contact" class="contact-grid-2">
+      <div class="form-group">
+        <label>Email:</label>
+        <input formControlName="email" type="email" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <label>Phone:</label>
+        <input formControlName="phone" type="tel" placeholder="Your Phone Number" required />
+      </div>
+      <div class="form-group">
+        <label>LinkedIn:</label>
+        <input formControlName="linkedIn" type="text" placeholder="Your LinkedIn Profile" />
+      </div>
+      <div class="form-group">
+        <label>GitHub:</label>
+        <input formControlName="github" type="text" placeholder="Your GitHub Profile" />
+      </div>
+    </div>
+
+
+    <hr>
+
+    <h2>About</h2>
+    <div class="full-width">
+      <textarea formControlName="about" placeholder="About"></textarea>
+    </div>
+
+    <hr>
+
+    <div class="headings">
+      <h2>Education</h2>
+      <button type="button" (click)="addEducation()"> + </button>
+    </div>
+    <div formArrayName="education" class="full-width">
+      <div *ngFor="let edu of education.controls; let i = index" [formGroupName]="i" class="dynamic-section edu-grid">
+        <div class="form-group">
+          <label>Degree:</label>
+          <input formControlName="degree" type="text" placeholder="Degree (e.g., B.Tech)" required />
+        </div>
+        <div class="form-group">
+          <label>College:</label>
+          <input formControlName="college" type="text" placeholder="College/School Name" required />
+        </div>
+        <div class="form-group">
+          <label>Year:</label>
+          <input formControlName="year" type="text" placeholder="Year (e.g., 2021-2025)" required />
+        </div>
+        <div class="form-group">
+          <label>GPA:</label>
+          <input formControlName="gpa" type="text" placeholder="GPA/Percentage" />
+        </div>
+        <button type="button" (click)="removeEducation(i)">Remove</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <div class="headings">
+      <h2>Experience</h2>
+      <button type="button" (click)="addExperience()"> + </button>
+    </div>
+    <div formArrayName="experience" class="full-width">
+      <div *ngFor="let exp of experience.controls; let i = index" [formGroupName]="i" class="dynamic-section experience-grid">
+        <div class="form-group">
+          <label>Role:</label>
+          <input formControlName="role" type="text" placeholder="Role (e.g., Intern)" required />
+        </div>
+        <div class="form-group">
+          <label>Company:</label>
+          <input formControlName="company" type="text" placeholder="Company Name" required />
+        </div>
+        <div class="form-group">
+          <label>Duration:</label>
+          <input formControlName="duration" type="text" placeholder="Duration (e.g., June 2024 - Aug 2024)" required />
+        </div>
+        <div class="form-group" style="grid-column: 1 / span 3;">
+          <label>Details:</label>
+          <textarea formControlName="details" placeholder="Details of work done"></textarea>
+        </div>
+        <button type="button" (click)="removeExperience(i)">Remove</button>
+      </div>
+    </div>
+
+
+    <hr>
+
+    <div class="headings">
+      <h2>Projects</h2>
+      <button type="button" (click)="addProject()"> + </button>
+    </div>
+    <div formArrayName="projects" class="full-width">
+      <div *ngFor="let proj of projects.controls; let i = index" [formGroupName]="i" class="dynamic-section project-stack">
+        <div class="form-group">
+          <label>Title:</label>
+          <input formControlName="title" type="text" placeholder="Project Title" required />
+        </div>
+        <div class="form-group">
+          <label>Description:</label>
+          <textarea formControlName="description" placeholder="Description"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Tools:</label>
+<!--          <input formControlName="tools" type="text" placeholder="Tools Used (comma separated)" />-->
+          <app-tag-input
+            [tags]="projectTools[i]"
+            (tagsChange)="onProjectToolsChange($event, i)"
+            placeholder="Tools Used"
+          ></app-tag-input>
+        </div>
+        <div class="form-group">
+          <label>Link:</label>
+          <input formControlName="link" type="text" placeholder="Project Link" />
+        </div>
+        <button type="button" (click)="removeProject(i)">Remove</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <h2>Skills</h2>
+    <div class="skills-stack" formGroupName="skills">
+      <div class="form-group">
+        <h3>Languages</h3>
+<!--        <input formControlName="languages" type="text" placeholder="Languages (comma separated)" />-->
+        <app-tag-input
+          [tags]="skillsLanguages"
+          (tagsChange)="onSkillsLanguagesChange($event)"
+          placeholder="Languages"
+        ></app-tag-input>
+      </div>
+
+      <div class="form-group">
+        <h3>Frameworks</h3>
+<!--        <input formControlName="frameworks" type="text" placeholder="Frameworks (comma separated)" />-->
+        <app-tag-input
+          [tags]="skillsFrameworks"
+          (tagsChange)="onSkillsFrameworksChange($event)"
+          placeholder="Frameworks"
+        ></app-tag-input>
+      </div>
+      <div class="form-group">
+        <h3>Tools</h3>
+<!--        <input formControlName="tools" type="text" placeholder="Tools (comma separated)" />-->
+        <app-tag-input
+          [tags]="skillsTools"
+          (tagsChange)="onSkillsToolsChange($event)"
+          placeholder="Tools"
+        ></app-tag-input>
+      </div>
+    </div>
+
+    <hr>
+    <div class="form-actions">
+      <button type="submit">Preview</button>
+    </div>
+  </form>
+</div>

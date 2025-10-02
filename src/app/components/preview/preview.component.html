@@ -1,0 +1,27 @@
+<div class="terminal-container"
+  [ngStyle]="{top: position.top + 'px', left: position.left + 'px'}"
+  (click)="inputRef?.focus()">
+  <div class="terminal-header"
+       (mousedown)="startDrag($event)">
+
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title">{{ title }}</span>
+  </div>
+  <div class="terminal-body">
+    <div id="history" #historyRef>
+      <ng-container *ngFor="let entry of history; trackBy: trackByIndex">
+        <div *ngIf="entry.command">
+          <span class="user-command"><span class="prompt">$</span> {{ entry.command }}</span>
+        </div>
+        <pre [ngClass]="entry.output.startsWith('Command not found') ? 'error' : 'output'">{{ entry.output }}</pre>
+      </ng-container>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" id="terminal-form" autocomplete="off">
+      <span class="prompt">$</span>
+      <input #inputRef id="terminal-input" type="text" [formControl]="commandInput" autocomplete="off" />
+    </form>
+  </div>
+</div>

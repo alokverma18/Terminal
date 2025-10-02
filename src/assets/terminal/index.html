@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="terminal-container" id="terminal-container">
+  <div class="terminal-header" id="terminal-header">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="terminal-title" id="terminal-title">terminal-portfolio</span>
+  </div>
+  <div class="terminal-body" id="terminal-body">
+    <div id="history">
+      <div class="user-command"><span class="prompt">$</span> ls</div>
+      <pre class="output">about.txt  projects/</pre>
+      <div class="user-command"><span class="prompt">$</span> foo</div>
+      <pre class="error">Command not found: foo</pre>
+    </div>
+    <form id="terminal-form" autocomplete="off">
+      <span class="prompt">$</span>
+      <input id="terminal-input" type="text" autocomplete="off" autofocus />
+    </form>
+  </div>
+</div>
+<script src="app.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    if (window.USER_COMMANDS && window.USER_COMMANDS.name) {
+      document.getElementById('terminal-title').textContent = window.USER_COMMANDS.name;
+    }
+  });
+</script>
+</body>
+</html>

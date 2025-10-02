@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "name": "terminal-portfolio-generator",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "dist/terminal"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
+  "buildCommand": "ng build --configuration production",
+  "outputDirectory": "dist/terminal",
+  "installCommand": "npm ci"
+}

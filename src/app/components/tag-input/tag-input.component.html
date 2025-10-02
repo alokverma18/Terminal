@@ -1,0 +1,12 @@
+<div class="tag-input-container">
+      <span *ngFor="let tag of tags; let i = index" class="tag">
+        {{ tag }}
+        <button type="button" (click)="removeTag(i)">×</button>
+      </span>
+  <input
+    [(ngModel)]="inputValue"
+    (keydown)="onKeyDown($event)"
+    (blur)="addTagOnBlur()"
+    placeholder="Type and press Enter or comma"
+  />
+</div>

@@ -1,0 +1,197 @@
+.form-container {
+  width: 80vw;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 40px 40px 40px;
+  background: #181818;
+  color: #e0e0e0;
+  border-radius: 8px;
+  border: 2px solid #333;
+  box-shadow: 0 2px 16px #000a;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  position: relative;
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0 16px 8px;
+  border-bottom: 1px solid #222;
+  margin-bottom: 24px;
+}
+
+.bar-btn {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 4px;
+  border: 1px solid #222;
+}
+.bar-btn.red { background: #ff5f56; }
+.bar-btn.yellow { background: #ffbd2e; }
+.bar-btn.green { background: #27c93f; }
+
+input, textarea {
+  width: -webkit-fill-available;
+}
+
+h2 {
+  color: #00ff99;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.headings h2 {
+  flex: 1;
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+  display: block;
+  margin-bottom: 32px;
+}
+
+.contact-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+  align-items: flex-end;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.dynamic-section {
+  background: #222;
+  border-radius: 4px;
+  padding: 16px;
+  margin-bottom: 18px;
+  border-left: 4px solid #00ff99;
+  width: 100%;
+}
+
+.dynamic-section textarea {
+  width: 100%;
+  min-height: 60px;
+  grid-column: span 4;
+}
+
+.dynamic-section.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) auto;
+  gap: 24px;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.dynamic-section.experience-grid textarea {
+  grid-column: 1 / span 3;
+  width: 100%;
+  min-height: 60px;
+}
+
+.project-stack {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  width: 100%;
+}
+
+.project-stack .form-group,
+.project-stack input,
+.project-stack textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+}
+
+.skills-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #00ff99;
+}
+
+input, textarea, button {
+  background: #222;
+  color: #e0e0e0;
+  border: 1px solid #444;
+  border-radius: 4px;
+  padding: 10px;
+  font-family: inherit;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+input:focus, textarea:focus {
+  outline: 2px solid #00ff99;
+}
+
+button {
+  background: #00ff99;
+  color: #181818;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #0004;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #00cc77;
+}
+
+button[type="submit"] {
+  width: 100%;
+  font-size: large;
+  padding: 20px;
+  margin-top: 18px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #333;
+  margin: 32px 0;
+}
+
+.edu-grid button,
+.dynamic-section.experience-grid button,
+.project-stack button {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 8px;
+}
+
+::-webkit-input-placeholder { color: #888; }
+::-moz-placeholder { color: #888; }
+:-ms-input-placeholder { color: #888; }
+::placeholder { color: #888; }
