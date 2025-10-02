@@ -65,23 +65,37 @@ export class ExportService {
       experience: experienceArray
     };
 
-    // Load template files
-    const [html, css, appJs] = await Promise.all([
-      fetch('assets/terminal/index.html').then(r => r.text()),
-      fetch('assets/terminal/styles.css').then(r => r.text()),
-      fetch('assets/terminal/app.js').then(r => r.text())
-    ]);
+    // Load template files with better error handling
+    try {
+      const [html, css, appJs] = await Promise.all([
+        fetch('/assets/terminal/index.html').then(r => {
+          if (!r.ok) throw new Error(`Failed to fetch index.html: ${r.status}`);
+          return r.text();
+        }),
+        fetch('/assets/terminal/styles.css').then(r => {
+          if (!r.ok) throw new Error(`Failed to fetch styles.css: ${r.status}`);
+          return r.text();
+        }),
+        fetch('/assets/terminal/app.js').then(r => {
+          if (!r.ok) throw new Error(`Failed to fetch app.js: ${r.status}`);
+          return r.text();
+        })
+      ]);
 
-    // Inject user data
-    const injectedAppJs = appJs.replace('__USER_COMMANDS__', JSON.stringify(normalized, null, 2));
+      // Inject user data
+      const injectedAppJs = appJs.replace('__USER_COMMANDS__', JSON.stringify(normalized, null, 2));
 
-    // Bundle files
-    const zip = new JSZip();
-    zip.file('index.html', html);
-    zip.file('styles.css', css);
-    zip.file('app.js', injectedAppJs);
+      // Bundle files
+      const zip = new JSZip();
+      zip.file('index.html', html);
+      zip.file('styles.css', css);
+      zip.file('app.js', injectedAppJs);
 
-    const blob = await zip.generateAsync({ type: 'blob' });
-    saveAs(blob, 'terminal.zip');
+      const blob = await zip.generateAsync({ type: 'blob' });
+      saveAs(blob, 'terminal-portfolio.zip');
+    } catch (error) {
+      console.error('Export failed:', error);
+      alert('Export failed. Please try again or check if the terminal template files are available.');
+    }
   }
 }
