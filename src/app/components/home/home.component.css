@@ -5,7 +5,6 @@
   justify-content: center;
 }
 
-
 .home-container {
   width: 80vw;
   max-width: 1200px;
@@ -18,6 +17,19 @@
   box-shadow: 0 2px 16px #000a;
   font-family: 'Fira Mono', 'Consolas', monospace;
   position: relative;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+img {
+  width: 50%;
+  margin-bottom: 10px;
 }
 
 .terminal-bar {
@@ -42,18 +54,7 @@
 .bar-btn.yellow { background: #ffbd2e; }
 .bar-btn.green { background: #27c93f; }
 
-.home-container h1 {
-  color: #00ff99;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 18px;
-  letter-spacing: 1px;
-}
 
-.home-container p {
-  margin-bottom: 18px;
-  color: #e0e0e0;
-}
 
 .home-container ol {
   background: #222;
