@@ -73,6 +73,7 @@ By exploring and working with this project, you'll gain hands-on experience with
 ### 1. Clone the Repository
 
 ```bash
+# Clone this repository (use your fork's URL if you've forked it)
 git clone https://github.com/alokverma18/Terminal.git
 cd Terminal
 ```
@@ -524,11 +525,13 @@ npm start
 
 ### Resources for Learning
 
-- [Angular Official Documentation](https://angular.dev)
-- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
-- [RxJS Documentation](https://rxjs.dev/)
-- [Angular Reactive Forms Guide](https://angular.dev/guide/forms/reactive-forms)
-- [MDN Web Docs](https://developer.mozilla.org/)
+The following resources are current as of 2025 and are maintained by their respective organizations:
+
+- [Angular Official Documentation](https://angular.dev) - Official Angular docs
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Official TypeScript guide
+- [RxJS Documentation](https://rxjs.dev/) - Official RxJS reference
+- [Angular Reactive Forms Guide](https://angular.dev/guide/forms/reactive-forms) - Forms documentation
+- [MDN Web Docs](https://developer.mozilla.org/) - Web standards reference
 
 ### Contributing
 
