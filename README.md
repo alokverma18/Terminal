@@ -1,4 +1,4 @@
-# Terminal Portfolio Generator
+# ScriptFolio: Terminal Portfolio Generator
 
 A sleek Angular application to create terminal-style portfolios. Users can input their resume data and preview it in a terminal interface.
 
@@ -34,7 +34,7 @@ Contributions are welcome! Feel free to fork the repository and submit pull requ
 
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
 ---
 
